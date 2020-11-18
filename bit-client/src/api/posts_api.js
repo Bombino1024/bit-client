@@ -1,14 +1,14 @@
 import axios from "axios";
+import { POSTS_ENDPOINT, SERVER_URL } from "../assets/urls";
 
 export const getPosts = (evt, username, obj) => {
   obj.setState({ query: "request param: " + username });
   evt.preventDefault();
   axios({
     method: "get",
-    url: "http://localhost:3001/posts/" + username,
+    url: SERVER_URL + POSTS_ENDPOINT + username,
   })
     .then((response) => {
-      console.log(response.data);
       if (response.data) {
         obj.setState({ posts: response.data });
       }
@@ -31,7 +31,7 @@ export const updatePost = (evt, title, description, obj) => {
   obj.setState({ query: "request data: " + JSON.stringify(requestData) });
   axios({
     method: "put",
-    url: "http://localhost:3001/posts/",
+    url: SERVER_URL + POSTS_ENDPOINT,
     data: requestData,
   })
     .then((response) => {
@@ -54,7 +54,7 @@ export const insertPost = (evt, title, description, owner, obj) => {
   obj.setState({ query: "request data: " + JSON.stringify(requestData) });
   axios({
     method: "post",
-    url: "http://localhost:3001/posts/",
+    url: SERVER_URL + POSTS_ENDPOINT,
     data: requestData,
   })
     .then((response) => {

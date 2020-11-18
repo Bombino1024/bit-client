@@ -1,4 +1,5 @@
 import axios from "axios";
+import { GRAPHQL_ENDPOINT, SERVER_URL } from "../assets/urls";
 
 export const getPosts = (evt, title, obj) => {
   evt.preventDefault();
@@ -18,7 +19,7 @@ export const getPosts = (evt, title, obj) => {
   });
   axios({
     method: "post",
-    url: "http://localhost:3001/graphql",
+    url: SERVER_URL + GRAPHQL_ENDPOINT,
     data: {
       query: String.raw`
       {
@@ -55,7 +56,7 @@ export const deletePost = (evt, title, obj) => {
   });
   axios({
     method: "post",
-    url: "http://localhost:3001/graphql",
+    url: SERVER_URL + GRAPHQL_ENDPOINT,
     data: {
       query: String.raw`
       mutation{
@@ -92,7 +93,7 @@ export const insertPost = (evt, title, description, owner, obj) => {
   });
   axios({
     method: "post",
-    url: "http://localhost:3001/graphql",
+    url: SERVER_URL + GRAPHQL_ENDPOINT,
     data: {
       query: String.raw`
       mutation{

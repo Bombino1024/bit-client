@@ -1,4 +1,5 @@
 import axios from "axios";
+import { LOGIN_ENDPOINT, SERVER_URL } from "../assets/urls";
 
 export const handleLogin = (evt, username, password, obj) => {
   try {
@@ -10,7 +11,7 @@ export const handleLogin = (evt, username, password, obj) => {
   const requestData = { username: username, password: password };
   axios({
     method: "post",
-    url: "http://localhost:3001/logins/login",
+    url: SERVER_URL + LOGIN_ENDPOINT,
     data: requestData,
   })
     .then((response) => {
