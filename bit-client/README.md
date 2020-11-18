@@ -15,6 +15,7 @@ The implementation of requests you can find in package [api](https://github.com/
 You can try to get unathorized access with query parameters
 
 ![alt text](https://github.com/Bombino1024/bit-client/blob/master/bit-client/src/assets/client1.png)
+
 ## NoSQL injections
 You can try to run infinite loop on the server side
 
